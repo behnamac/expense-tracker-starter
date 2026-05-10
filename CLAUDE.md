@@ -20,20 +20,22 @@ React 19 + Vite 7. No routing, no state management library, no TypeScript.
 
 ## Architecture
 
-All logic lives in a single file: `src/App.jsx`. Styles are split across `src/App.css` (component-scoped) and `src/index.css` (global reset/body).
+`src/App.jsx` holds `transactions` state, computes totals, and renders three child components. Styles are split across `src/App.css` (component-scoped) and `src/index.css` (global reset/body).
+
+### Components
+
+- **`src/components/Summary.jsx`** — pure display, receives `totalIncome`, `totalExpenses`, `balance` as props.
+- **`src/components/TransactionForm.jsx`** — owns its own form state, calls `onAdd(transaction)` on submit. Parses `amount` to `parseFloat` before passing it up.
+- **`src/components/TransactionList.jsx`** — owns `filterType` and `filterCategory` state, receives `transactions` as a prop.
 
 ### State shape
 
-`transactions` (useState) is the sole source of truth — in-memory only, not persisted. Each item: `{ id, description, amount, type, category, date }`.
-
-### Known bugs in the starter
-
-- **`amount` is a string**: form input sets it as a string, so `.reduce((sum, t) => sum + t.amount, 0)` string-concatenates instead of summing — fix by parsing with `parseFloat` at read time or `Number()` on input.
-- **Seed data**: transaction #4 ("Freelance Work") has `type: "expense"` but `category: "salary"` — likely should be `type: "income"`.
+`transactions` (useState in App) is the sole source of truth — in-memory only, not persisted. Each item: `{ id, description, amount, type, category, date }`. `amount` is a number.
 
 ### Other intentional limitations
 
-- `filteredTransactions` is recomputed inline on every render (not memoized).
+- `filteredTransactions` in `TransactionList` is recomputed inline on every render (not memoized).
 - CSS uses flat class names like `.income-amount`, `.expense-amount`, `.summary-card`, `.balance-amount` — no CSS modules or utility framework.
+- `CATEGORIES` is duplicated in both `TransactionForm` and `TransactionList`.
 
-This project is intentionally simple and slightly broken — it's the teaching starter for a Claude Code course.
+This project is intentionally simple — it's the teaching starter for a Claude Code course.
