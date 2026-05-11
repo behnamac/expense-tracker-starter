@@ -1,36 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap');
+
 :root,
 [data-theme="light"] {
-  --color-bg-page:      #ffffff;
-  --color-bg-card:      #ffffff;
-  --color-bg-thead:     #f5f5f5;
-  --color-bg-delete:    #eeeeee;
+  --color-bg-page:        #EDEAE4;
+  --color-bg-card:        #FAFAF8;
+  --color-bg-card-alt:    #F3F1ED;
+  --color-bg-input:       #F0EDE8;
+  --color-bg-hover:       #ECEAE5;
 
-  --color-text-body:    #333333;
-  --color-text-subtle:  #666666;
-  --color-text-label:   #888888;
+  --color-text-primary:   #141416;
+  --color-text-secondary: #6B7280;
+  --color-text-muted:     #A8B0BC;
 
-  --color-border:       #dddddd;
-  --color-border-input: #cccccc;
+  --color-border:         rgba(0,0,0,0.07);
+  --color-border-input:   rgba(0,0,0,0.12);
+  --color-border-strong:  rgba(0,0,0,0.18);
 
-  --color-btn-bg:   #333333;
-  --color-btn-text: #ffffff;
+  --color-income:         #059669;
+  --color-income-bg:      rgba(5,150,105,0.08);
+  --color-expense:        #DC2626;
+  --color-expense-bg:     rgba(220,38,38,0.07);
+  --color-balance-pos:    #B45309;
+  --color-balance-neg:    #DC2626;
+  --color-balance-bg:     rgba(180,83,9,0.07);
+
+  --color-accent:         #141416;
+  --color-accent-text:    #FAFAF8;
+
+  --shadow-card:          0 1px 2px rgba(0,0,0,0.04), 0 4px 14px rgba(0,0,0,0.05);
+  --shadow-card-hover:    0 4px 24px rgba(0,0,0,0.1);
 }
 
 [data-theme="dark"] {
-  --color-bg-page:      #1a1a1a;
-  --color-bg-card:      #242424;
-  --color-bg-thead:     #2e2e2e;
-  --color-bg-delete:    #2e2e2e;
+  --color-bg-page:        #090B0F;
+  --color-bg-card:        #10131A;
+  --color-bg-card-alt:    #161921;
+  --color-bg-input:       #1A1E28;
+  --color-bg-hover:       #1C2130;
 
-  --color-text-body:    #e5e5e5;
-  --color-text-subtle:  #a0a0a0;
-  --color-text-label:   #7a7a7a;
+  --color-text-primary:   #DDE1EA;
+  --color-text-secondary: #7A8494;
+  --color-text-muted:     #404859;
 
-  --color-border:       #3a3a3a;
-  --color-border-input: #4a4a4a;
+  --color-border:         rgba(255,255,255,0.05);
+  --color-border-input:   rgba(255,255,255,0.09);
+  --color-border-strong:  rgba(255,255,255,0.14);
 
-  --color-btn-bg:   #e5e5e5;
-  --color-btn-text: #1a1a1a;
+  --color-income:         #10F5A0;
+  --color-income-bg:      rgba(16,245,160,0.07);
+  --color-expense:        #FF4559;
+  --color-expense-bg:     rgba(255,69,89,0.07);
+  --color-balance-pos:    #FBBF24;
+  --color-balance-neg:    #FF4559;
+  --color-balance-bg:     rgba(251,191,36,0.07);
+
+  --color-accent:         #DDE1EA;
+  --color-accent-text:    #090B0F;
+
+  --shadow-card:          0 1px 3px rgba(0,0,0,0.3), 0 4px 14px rgba(0,0,0,0.2);
+  --shadow-card-hover:    0 8px 32px rgba(0,0,0,0.45);
 }
 
 * {
@@ -40,8 +68,11 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Outfit', sans-serif;
   background-color: var(--color-bg-page);
-  color: var(--color-text-body);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

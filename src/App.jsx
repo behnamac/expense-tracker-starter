@@ -27,7 +27,7 @@ function App() {
       </header>
       <Summary totalIncome={totalIncome} totalExpenses={totalExpenses} balance={balance} />
       <TransactionForm onAdd={addTransaction} />
-      <SpendingChart transactions={transactions} />
+      <SpendingChart transactions={transactions} darkMode={darkMode} />
       <TransactionList transactions={transactions} />
     </div>
   );
