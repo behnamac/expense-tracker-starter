@@ -8,7 +8,7 @@ import { useTransactions } from './hooks/useTransactions'
 
 function App() {
   const { darkMode, toggleTheme } = useTheme();
-  const { transactions, totalIncome, totalExpenses, balance, addTransaction } = useTransactions();
+  const { transactions, totalIncome, totalExpenses, balance, addTransaction, deleteTransaction } = useTransactions();
 
   return (
     <div className="app">
@@ -28,7 +28,7 @@ function App() {
       <Summary totalIncome={totalIncome} totalExpenses={totalExpenses} balance={balance} />
       <TransactionForm onAdd={addTransaction} />
       <SpendingChart transactions={transactions} darkMode={darkMode} />
-      <TransactionList transactions={transactions} />
+      <TransactionList transactions={transactions} onDelete={deleteTransaction} />
     </div>
   );
 }

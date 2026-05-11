@@ -339,6 +339,32 @@
   letter-spacing: -0.3px;
 }
 
+.delete-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  border-radius: 7px;
+  cursor: pointer;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+}
+
+.transaction-row:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  background: var(--color-expense-bg);
+  color: var(--color-expense);
+}
+
 .transactions-empty {
   text-align: center;
   padding: 48px 0;

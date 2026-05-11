@@ -20,7 +20,7 @@ const CATEGORY_BG = {
 const fmt = (n) =>
   Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-function TransactionList({ transactions }) {
+function TransactionList({ transactions, onDelete }) {
   const [filterType, setFilterType] = useState("all");
   const [filterCategory, setFilterCategory] = useState("all");
 
@@ -66,6 +66,7 @@ function TransactionList({ transactions }) {
               <div className={`transaction-amount ${t.type === 'income' ? 'income-amount' : 'expense-amount'}`}>
                 {t.type === 'income' ? '+' : '−'}${fmt(t.amount)}
               </div>
+              <button className="delete-btn" onClick={() => onDelete(t.id)} aria-label="Delete transaction">✕</button>
             </div>
           ))}
         </div>
