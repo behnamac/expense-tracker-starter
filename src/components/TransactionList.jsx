@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { formatCurrency } from '../utils/formatCurrency';
 
 const CATEGORIES = ["food", "housing", "utilities", "transport", "entertainment", "salary", "other"];
 
@@ -16,9 +17,6 @@ const CATEGORY_BG = {
   salary:        'rgba(0,206,201,0.14)',
   other:         'rgba(253,203,110,0.14)',
 };
-
-const fmt = (n) =>
-  Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 function TransactionList({ transactions, onDelete }) {
   const [filterType, setFilterType] = useState("all");
@@ -64,7 +62,7 @@ function TransactionList({ transactions, onDelete }) {
                 <div className="transaction-meta">{t.date} · {t.category}</div>
               </div>
               <div className={`transaction-amount ${t.type === 'income' ? 'income-amount' : 'expense-amount'}`}>
-                {t.type === 'income' ? '+' : '−'}${fmt(t.amount)}
+                {t.type === 'income' ? '+' : '−'}${formatCurrency(t.amount)}
               </div>
               <button className="delete-btn" onClick={() => onDelete(t.id)} aria-label="Delete transaction">✕</button>
             </div>
